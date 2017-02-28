@@ -1,0 +1,41 @@
+{
+  "name": "whitelabel-web-mypoc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "clean": "rimraf pages && mkdir pages",
+    "template:default": "copyfiles -f ./app/templates/default/*.js pages",
+    "template:dox": "copyfiles -f ./app/templates/dox/*.js pages",
+    "template:bp": "copyfiles -f ./app/templates/bp/*.js pages",
+    "template:all": "copyfiles -u 2 ./app/templates/**/*.js pages",
+    "default": "npm run clean && npm run template:default && npm run dev",
+    "dox": "npm run clean && npm run template:dox && npm run dev",
+    "bp": "npm run clean && npm run template:bp && npm run dev",
+    "all": "npm run clean && npm run template:all && npm run dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.2",
+    "babel-plugin-root-import": "^5.0.0",
+    "babel-preset-latest": "^6.22.0",
+    "babel-preset-react": "^6.23.0",
+    "copyfiles": "^1.2.0",
+    "isomorphic-fetch": "^2.2.1",
+    "next": "^2.0.0-beta",
+    "next-redux-wrapper": "^1.0.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-redux": "^5.0.1",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.1.0",
+    "rimraf": "^2.6.0",
+    "webpack": "^2.2.1"
+  }
+}
