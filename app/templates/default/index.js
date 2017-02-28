@@ -1,27 +1,43 @@
-// ./pages/index.js
 import React from 'react'
-import Link from 'next/prefetch'
-import 'isomorphic-fetch'
+import { initStore, startClock } from '~/store'
+import withRedux from 'next-redux-wrapper'
+import RouteLinks from '~/app/components/RouteLinks'
 import WLHeader from '~/app/components/Head'
-// Import the Head Component
+import ClockWrap from '~/app/components/ClockWrap'
+import Counter from '~/app/components/Counter'
 
+let a = [{
+  href: '/that',
+  title: 'that'
+},
+{
+  href: '/',
+  title: 'Home'
+}];
 
-export default class MyPage extends React.Component {
-  static async getInitialProps() {
-    // eslint-disable-next-line no-undef
-    const res = await fetch('https://api.github.com/repos/zeit/next.js')
-    const json = await res.json()
-    return { stars: json.stargazers_count }
+class Home extends React.Component {
+  static getInitialProps({ store, isServer }) {
+    store.dispatch({ type: 'TICK', light: !isServer, ts: Date.now() })
+    return { isServer }
+  }
+
+  componentDidMount() {
+    this.timer = this.props.dispatch(startClock())
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer)
   }
 
   render() {
     return (
       <div>
-        <WLHeader title='POC'/>
-        <h1>Index Default</h1>
-        <p>Next.js has {this.props.stars} ⭐️</p>
-        <Link href='/preact'><a>How about preact?</a></Link>
+        <WLHeader title='Default TEMPLATE - Home' />
+        <ClockWrap/>
+        <RouteLinks title='Default Home Page' linkTo={a} />
       </div>
     )
   }
 }
+
+export default withRedux(initStore)(Home)

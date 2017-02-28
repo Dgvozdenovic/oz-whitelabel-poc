@@ -14,7 +14,7 @@ let a = [{
   title: 'Home'
 }];
 
-class Counter extends React.Component {
+class Other extends React.Component {
   static getInitialProps({ store, isServer }) {
     store.dispatch({ type: 'TICK', light: !isServer, ts: Date.now() })
     return { isServer }
