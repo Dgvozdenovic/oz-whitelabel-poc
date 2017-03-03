@@ -21,10 +21,10 @@ let a = [{
   title: 'Widgets'
 }];
 
-class BP extends React.Component {
+class Home extends React.Component {
   static getInitialProps({ store, isServer }) {
     //store.dispatch({ type: 'GET_CONFIG', config: {color: 'blue'} })
-    store.dispatch({ type: 'TICK', light: !isServer, ts: Date.now() })
+    //store.dispatch({ type: 'TICK', light: !isServer, ts: Date.now() })
     return { isServer }
   }
 
@@ -33,21 +33,27 @@ class BP extends React.Component {
   }
 
   componentDidMount() {
-    this.timer = this.props.dispatch(startClock())
+    //this.timer = this.props.dispatch(startClock())
   }
 
   componentWillUnmount() {
-    clearInterval(this.timer)
+    //clearInterval(this.timer)
   }
 
   onClick(instance) {
       setInstance(instance);
   }
 
+  refresh () {
+     //store.dispatch({ type: 'TICK', light: !isServer, ts: Date.now() })
+    //startClock();
+  }
+
   render() {
     return (
       <div>
         <WLHeader title='Home' />
+        <a onClick={this.refresh}>Refresh!</a>
         <ClockWrap/>
         <br/>
         {/*<Button
@@ -66,4 +72,4 @@ class BP extends React.Component {
   }
 }
 
-export default withRedux(initStore)(BP)
+export default withRedux(initStore)(Home)

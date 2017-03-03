@@ -6,8 +6,8 @@ export default class Slider2 extends React.Component {
   render () {
       let items;
       if (this.props.data) {
-          items = this.props.data.map(color =>
-              <div style={{
+          items = this.props.data.map((color, index) =>
+              <div key={index} style={{
                   width: '20px',
                   height: '50px',
                   display: 'inline-block',

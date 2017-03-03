@@ -2,8 +2,8 @@ import React from 'react'
 import { initStore, startClock } from '~/store'
 import withRedux from 'next-redux-wrapper'
 import RouteLinks from '~/app/components/RouteLinks'
-import WLHeader from '~/app/components/Head'
-import ClockWrap from '~/app/components/ClockWrap'
+import Test from '~/app/widgets/Test'
+
 
 let a = [{
   href: '/other',
@@ -20,24 +20,20 @@ let a = [{
 
 class Other extends React.Component {
   static getInitialProps({ store, isServer }) {
-    store.dispatch({ type: 'TICK', light: !isServer, ts: Date.now() })
-    return { isServer }
   }
 
+
   componentDidMount() {
-    this.timer = this.props.dispatch(startClock())
   }
 
   componentWillUnmount() {
-    clearInterval(this.timer)
   }
 
   render() {
     return (
       <div>
-        <WLHeader title='Other' />
-        <ClockWrap/>
         <RouteLinks title='Other Page' linkTo={a} />
+        <Test/>
       </div>
     )
   }

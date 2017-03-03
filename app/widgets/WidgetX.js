@@ -6,8 +6,8 @@ export default class WidgetX extends React.Component {
   render () {
       let items;
       if (this.props.data) {
-          items = this.props.data.map(text =>
-              <li>{text}</li>
+          items = this.props.data.map((text, index) =>
+              <li key={index}>{text}</li>
             );
       }
 
