@@ -4,21 +4,18 @@ import withRedux from 'next-redux-wrapper'
 import RouteLinks from '~/app/components/RouteLinks'
 import WLHeader from '~/app/components/Head'
 import ClockWrap from '~/app/components/ClockWrap'
+import Counter from '~/app/components/Counter'
 
 let a = [{
-  href: '/other',
-  title: 'Other'
+  href: '/that',
+  title: 'that'
 },
 {
   href: '/',
   title: 'Home'
-},
-{
-    href: '/widgets',
-    title: 'Widgets'
 }];
 
-class Other extends React.Component {
+class That extends React.Component {
   static getInitialProps({ store, isServer }) {
     store.dispatch({ type: 'TICK', light: !isServer, ts: Date.now() })
     return { isServer }
@@ -35,12 +32,13 @@ class Other extends React.Component {
   render() {
     return (
       <div>
-        <WLHeader title='Other' />
+        <WLHeader title='Default TEMPLATE - That' />
         <ClockWrap/>
-        <RouteLinks title='Other Page' linkTo={a} />
+        <Counter />
+        <RouteLinks title='Default That Page' linkTo={a} />
       </div>
     )
   }
 }
 
-export default withRedux(initStore)(Counter)
+export default withRedux(initStore)(That)
