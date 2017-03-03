@@ -43,4 +43,4 @@ class Other extends React.Component {
   }
 }
 
-export default withRedux(initStore)(Counter)
+export default withRedux(initStore)(Other)

@@ -1,3 +1,4 @@
 node_modules
 .next
 debug.log
+npm-debug.log
