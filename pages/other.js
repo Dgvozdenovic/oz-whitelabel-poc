@@ -12,6 +12,10 @@ let a = [{
 {
   href: '/',
   title: 'Home'
+},
+{
+    href: '/widgets',
+    title: 'Widgets'
 }];
 
 class Counter extends React.Component {
@@ -31,9 +35,9 @@ class Counter extends React.Component {
   render() {
     return (
       <div>
-        <WLHeader title='BP TEMPLATE - Home' />
+        <WLHeader title='Other' />
         <ClockWrap/>
-        <RouteLinks title='BP Home Page' linkTo={a} />
+        <RouteLinks title='Other Page' linkTo={a} />
       </div>
     )
   }

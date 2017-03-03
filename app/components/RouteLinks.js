@@ -5,7 +5,7 @@ export default connect(state => state)(({ title, linkTo}) => {
 
   var indents = [];
   for (var i = 0; i < linkTo.length; i++) {
-    indents.push(<Link key={i} href={linkTo[i].href}><a>{linkTo[i].title}</a></Link>);
+    indents.push(<Link key={i} href={linkTo[i].href}><a>{linkTo[i].title}<br/></a></Link>);
   }
 
   return (
