@@ -4,8 +4,11 @@ import withRedux from 'next-redux-wrapper'
 import RouteLinks from '~/app/components/RouteLinks'
 import WLHeader from '~/app/components/Head'
 import ClockWrap from '~/app/components/ClockWrap'
-import Button from '~/app/elements/Button/button.js'
-import { setInstance, loadConfig } from '~/app/helpers/configHelper'
+import Button from '~/app/elements/Button'
+import Header from '~/app/elements/Header'
+
+import { setConfig } from '~/rdx/actions/configActions'
+
 
 
 let a = [{
@@ -29,7 +32,7 @@ class Home extends React.Component {
   }
 
   componentWillMount () {
-     // loadConfig();
+      this.props.dispatch(setConfig());
   }
 
   componentDidMount() {
@@ -41,7 +44,7 @@ class Home extends React.Component {
   }
 
   onClick(instance) {
-      setInstance(instance);
+      this.props.dispatch(setConfig(instance));
   }
 
   refresh () {
@@ -56,7 +59,12 @@ class Home extends React.Component {
         <a onClick={this.refresh}>Refresh!</a>
         <ClockWrap/>
         <br/>
-        {/*<Button
+        <span> </span>
+        <br/>
+        <Header text={"url:" + API_BASE}/>
+
+        <br/>
+        <Button
             className = "btn"
             btnText = "Instance 1"
             onClick={this.onClick.bind(this, 1)}
@@ -65,7 +73,8 @@ class Home extends React.Component {
             className = "btn"
             btnText = "Instance 2"
             onClick={this.onClick.bind(this, 2)}
-        />*/}
+        />
+
         <RouteLinks title='Home Page' linkTo={a} />
       </div>
     )
