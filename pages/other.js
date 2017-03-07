@@ -4,9 +4,7 @@ import withRedux from 'next-redux-wrapper'
 import RouteLinks from '~/app/components/RouteLinks'
 import Test from '~/app/widgets/Test'
 import config from '~/config'
-
-
-
+import Logo from '~/app/components/Logo'
 
 
 let a = [{
