@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "next --instance=test --env=production ",
-    "build": "next build",
+    "dev": "npm run clean && next --instance=test --env=production ",
+    "clean": "rimraf .\\node_modules\\.cache",
+    "build-dev": "npm run clean && next build --env=development",
+    "build-prod": "npm run clean && next build --env=production",
     "start": "next start",
     "fake-api": "json-server --watch db.json --port 3004"
   },
@@ -37,6 +39,7 @@
     "redux": "^3.6.0",
     "redux-logger": "^2.8.2",
     "redux-thunk": "^2.1.0",
+    "rimraf": "^2.6.1",
     "webpack": "^2.2.1"
   }
 }
