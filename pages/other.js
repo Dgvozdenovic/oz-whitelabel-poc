@@ -3,6 +3,8 @@ import { initStore, startClock } from '~/store'
 import withRedux from 'next-redux-wrapper'
 import RouteLinks from '~/app/components/RouteLinks'
 import Test from '~/app/widgets/Test'
+import Logo from '~/app/components/Logo'
+
 
 let a = [{
   href: '/other',
@@ -33,6 +35,7 @@ class Other extends React.Component {
     // {test.envi}
     return (
       <div>
+        <Logo />
         <RouteLinks title='Other Page' linkTo={a} />
         <Test/>
       </div>
