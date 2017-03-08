@@ -8,7 +8,7 @@ import Button from '~/app/elements/Button'
 import Header from '~/app/elements/Header'
 
 import { setConfig } from '~/rdx/actions/configActions'
-
+import { I18n, Translate } from 'react-redux-i18n'
 
 
 let a = [{
@@ -47,19 +47,13 @@ class Home extends React.Component {
       this.props.dispatch(setConfig(instance));
   }
 
-  refresh () {
-     //store.dispatch({ type: 'TICK', light: !isServer, ts: Date.now() })
-    //startClock();
-  }
-
   render() {
     return (
       <div>
         <WLHeader title='Home' />
-        <a onClick={this.refresh}>Refresh!</a>
-        <ClockWrap/>
         <br/>
-        <span> </span>
+        <Translate value="application.title"/><br/>
+        <span>{I18n.t('application.hello', {name: 'Nesha'})}</span>
         <br/>
         <Header text={"url:" + API_BASE}/>
 

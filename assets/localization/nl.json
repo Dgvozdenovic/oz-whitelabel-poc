@@ -1,0 +1,6 @@
+{
+    "application": {
+        "title": "Yo Yo",
+        "hello": "Hallo, %{name}!"
+    }
+}

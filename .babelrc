@@ -10,6 +10,7 @@
     "babel-plugin-root-import",
     "react-html-attrs",
     "transform-class-properties",
-    [ "transform-define", "./config/index.js" ]
+    [ "transform-define", "./config/index.js" ],
+    ["inline-json-import", {}]
   ]
 }
